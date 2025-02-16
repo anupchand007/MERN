@@ -26,3 +26,5 @@ function Validator(){
     return true;
     
 }
+
+console.log("Done Compiling")
