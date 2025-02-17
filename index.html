@@ -7,16 +7,28 @@
 </head>
 <body>
 
-    <form action="#" method="post" onsubmit="return Validator()">
+    <!-- <form action="#" method="post" onsubmit="return Validator()">
         Name <input type="text" name="name" id="name"> <br><br>
         Age <input type="number" name="age" id="age"> <br><br>
         Address <input type="text" name="address" id="address"> <br><br>
 
         <button type="submit">Submit</button>
 
-    </form>
+    </form> -->
+
+First Number: <input type="number" name="num1" id="num1">
+Second Number: <input type="number" name="num2" id="num2">
+
+<h2 style="color: cadetblue;">Welcome to Calculator</h2>
+    <div class="options">
+    <button value="submit" onclick="sum()" id="+">+</button>
+    <button value="submit" onclick="sub()" id="-">-</button>
+    <button value="submit" onclick="div()" id="/">/</button>
+    <button value="submit" onclick="mul()" id="*">*</button>
+
+</div>
     <br>
-    <div id="err" style="color: red;"></div>
+    <div id="disp" style="color: red;"></div>
     <script src="demo.js"></script>
 
     
