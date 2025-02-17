@@ -9,6 +9,15 @@ class Animal {
     }
 }
 
+class Hoofman extends Animal{       //polymorphism
+    showData(){
+        console.log("hoofmann")
+    }
+}
+
+let h = new Hoofman();
+h.showData();
+
 let cat = new Animal();                         //creating a new object from the parent class
 cat.setData("Bubbly", "Gharelu");
 cat.showData();
