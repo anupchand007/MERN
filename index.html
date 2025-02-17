@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
     <!-- <form action="#" method="post" onsubmit="return Validator()">
@@ -15,23 +17,25 @@
         <button type="submit">Submit</button>
 
     </form> -->
+    <container class="Calculator">
+    <h2 style="color: cadetblue;">Welcome to Calculator</h2>
 
-First Number: <input type="number" name="num1" id="num1">
-Second Number: <input type="number" name="num2" id="num2">
+    <br><br>
+    <form action="#" method="post">
+        1st Num: <input type="number" id="num1"><br><br>
+        2nd Num: <input type="number" id="num2"><br><br>
 
-<h2 style="color: cadetblue;">Welcome to Calculator</h2>
-    <div class="options">
-    <button value="submit" onclick="sum()" id="+">+</button>
-    <button value="submit" onclick="sub()" id="-">-</button>
-    <button value="submit" onclick="div()" id="/">/</button>
-    <button value="submit" onclick="mul()" id="*">*</button>
-
-</div>
+        <input type="button" onclick="val('+')" value="Add">
+        <input type="button" onclick="val('*')" value="Multiply">
+        <input type="button" onclick="val('/')" value="Divide">
+        <input type="button" onclick="val('-')" value="Subtract">
+    </form>
     <br>
+    </container>
     <div id="disp" style="color: red;"></div>
-    <script src="demo.js"></script>
-
-    
+    <!-- <script src="demo.js"></script> -->
+     <script src="JS_Scripts/calculator_logic.js"></script>
 
 </body>
+
 </html>

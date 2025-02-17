@@ -30,23 +30,31 @@
 // console.log("Done Compiling"
 
 
-let x = document.getElementById("num1").value;
-let y = document.getElementById("num2").value;
+function val(op) {
+    let x = parseFloat(document.getElementById("num1").value);
+    let y = parseFloat(document.getElementById("num2").value);
 
-let result = document.getElementById("disp");
-result.innerText = "";
+    let result = document.getElementById("disp");
+    result.innerText = "";
 
-function sum() {
-    result.innerText = x + y;
+    switch (op) {
+        case '+':
+            result.innerText = `Result is` + ( x + y );
+            break;
+        case '/':
+            result.innerText = `Result is ${x / y}`;
+            break;
+        case '*':
+            result.innerText = `Result is ${x * y}`;
+            break;
+        case '-':
+            result.innerText = `Result is ${x - y}`;
+            break;
+        default:
+            result.innerText = `Invalid Option`;
+    }
 }
-function div() {
-    result.innerText = x / y;
-}
-function sub() {
-    result.innerText = x - y;
-}
-function mul() {
-    result.innerText = x * y;
-}
+
+
 
 console.log("weee");
