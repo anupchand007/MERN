@@ -1,4 +1,6 @@
-const MyObject = {
+// A object is a key value pair 
+
+let MyObject = {
     "name" : "Anup Chand",
     "age" : 22,
     "address" : "Dhangadhi",
@@ -8,3 +10,10 @@ const MyObject = {
     }
 }
 MyObject.Show();
+console.log(MyObject["age"]);
+console.log(MyObject["address"]);
+
+//Changing the value of the object key
+MyObject["name"] = "Aarav";
+MyObject.Show();
+console.log(MyObject);
