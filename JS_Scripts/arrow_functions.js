@@ -16,7 +16,6 @@ let sum1 = (a, b) => a + b;
 // console.log("The result of the arrow function is " + sum1(2,3));
 
 //Checks whether a number is positive or negative.
-
 function isPositive(value) {
     return value >= 0;
 }
@@ -33,10 +32,7 @@ let isPositive2 = value => value >= 0;
 // console.log("The Result is "+isPositive2(6));
 // console.log("The Result is "+isPositive1(-3));
 
-/**
- * Generates a random number.
- * returns {number} A random number between 0 and 1
- */
+
 function randomMath() {
     return Math.random();
 }
@@ -55,8 +51,7 @@ let randomMath2 = () => Math.random();
 // document.addEventListener('click', function() {
 //     console.log('Click');
 // });
-
-// document.addEventListener('click', () => console.log('Click'));
+document.addEventListener('click', () => console.log('Click'));
 
 /**
  * Prints the full name of a person.
