@@ -12,6 +12,3 @@ console.log(volume.toFixed(2));
 
 let cic = getCircumference(3);
 console.log(cic.toFixed(2));
-
-
-
