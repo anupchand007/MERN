@@ -12,3 +12,12 @@ console.log(volume.toFixed(2));
 
 let cic = getCircumference(3);
 console.log(cic.toFixed(2));
+
+function add(a,b){
+    return a +b ;
+
+}
+
+const result =  add(2,5);
+result;
+
