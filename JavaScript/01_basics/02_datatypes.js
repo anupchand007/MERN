@@ -25,3 +25,18 @@ let loggedIn = true
 
 console.log(typeof (undefined));        //undefined type
 console.log(typeof (null));             // onbjects
+
+
+// Primitives (Call by Values) 
+// 7 Types: String, Number, Boolean, Null, Undefined,
+//  Symbol, BigInt
+
+// No Primitives (Call by references)
+// Types: Arrays, Objects, Funtions
+
+const myObj = {
+    name : "Anup Chand",
+    aghe : 22
+}
+
+console.log(typeof myObj);
