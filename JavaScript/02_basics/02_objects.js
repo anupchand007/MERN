@@ -87,8 +87,10 @@ const Course = {
     teacher : "hitesh"
 }
 
-const {teacher : tea} = Course;
-console.log(tea);
+//Destructuring object
+
+const {teacher} = Course;
+console.log(teacher);
 
 
 const Person = {
