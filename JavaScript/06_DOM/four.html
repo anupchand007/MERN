@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(61, 58, 58); color: white;">
+    <ul class="unlist">
+        <li>Java</li>
+    </ul>
+</body>
+<script>
+    function addLangauge(lName){
+        const li = document.createElement('li')
+        li.innerHTML = lName;
+        document.querySelector(".unlist").appendChild(li)
+    }
+    addLangauge("pyhton");
+    addLangauge("react");
+
+    function addOptiLangauge (lName){
+        const li = document.createElement("li");
+        li.appendChild(document.createTextNode(lName))
+        document.querySelector(".unlist").appendChild(li)
+    }
+    addOptiLangauge("Danjo")
+
+    //Edit
+    const selector = document.querySelector("li:nth-child(2)")
+    // selector.innerHTML = "Dojo"
+    const newli = document.createElement("li")
+    newli.textContent = "Lolo"
+    selector.replaceWith(newli)
+
+
+    //remove
+    const lastlan = document.querySelector("li:last-child")
+    // lastlan.remove() //removes last element
+</script>
+</html>c
