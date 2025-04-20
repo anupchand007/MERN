@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>BMI Calculator</h2>
+        <form>
+            <label for="Height">Height in CM:</label>
+            <input type="text" name="Height" id="Height">
+            <br>
+            <br>
+            <label for="Weight">Weight in KG:</label>
+            <input type="text" name="Weight" id="Weight">
+            <br>
+            <br>
+            <div id="result"></div>
+            <button id="Calculate">Calculate</button>
+        </form>
+           <pre>
+            BMI Categories:
+            Underweight: Below 18.5 kg/m²
+            Healthy Weight: 18.5 to 24.9 kg/m²
+            Overweight: 25 to 29.9 kg/m²
+            Obese: 30 or higher kg/m²
+           </pre>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
