@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+        #status {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter the Right Number</h2>
+        <form id="gameForm">
+            <input type="text" id="userGuess" name="userGuess" placeholder="Enter your Guess">
+            <input type="submit" value="Validate Guess" id="submit">
+            <div id="status"></div>
+        </form>
+        <br>
+        <div class="info">
+            <div id="guess">Guesses: </div>
+            <div id="Remaining">Remaining Guesses: 10</div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
