@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Events</title>
+</head>
+
+<body style="background-color: #41414f;">
+    <h2>Amazing Images</h2>
+    <ul id="images">
+        <li><img id="glasses" src="/JavaScript/08_Events/1218911.jpg" alt="glasses with code" srcset="" height="150px">
+        </li>
+        <li><img id="pruple" src="/JavaScript/08_Events/1357268.jpg" alt="" srcset="" height="150px"></li>
+        <li><img id="spidy" src="/JavaScript/08_Events/cropped-1920-1080-960281.jpg" alt="" srcset="" height="150px">
+        </li>
+        <li><img id="statue" src="/JavaScript/08_Events/statue_by_caspgfrx_dev5p9t.png" alt="" srcset="" height="150px">
+        </li>
+        <li><img id="nasa" src="/JavaScript/08_Events/wallpaperflare.com_wallpaper (2).jpg" alt="" srcset=""
+                height="150px"></li>
+
+        <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+    </ul>
+</body>
+
+<script>
+
+    // document.getElementById('glasses').onclick = function() {
+    //     alert('You Clicked on Glasses')
+    // }
+
+
+    //things to study on ADDEVENTLISTERNER
+    // type(click, submit, keyboard), timestamp. target, defaultPrevent
+    // target, toElement, srcElement, currentTarget, shiftkey, keycode,
+    // altkey
+
+
+    const pic = document.getElementById('glasses');
+
+    /////++++++++++++++++++++ Event Propagation ++++++++++++/////////////////////
+
+    // Event Propagation (Follows the squence flow by provide true valye after function in addEventListener)
+
+    // pic.addEventListener('click', function (e) {
+    //     // console.log(e)     
+    //     console.log("you have clicked the owl")
+    //     // e.stopPropagation();
+    // })
+
+
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     // console.log(e)     
+    //     console.log("you have clicked the pic")
+    //     // e.stopPropagation();
+    // })
+
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     console.log('Google Clicked');
+
+    // })
+
+    /////++++++++++++++++++++ Event Propagation ++++++++++++/////////////////////
+
+
+    document.querySelector('#images').addEventListener('click', function (e) {
+        // console.log(e);
+        console.log(e.target.parentNode);
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            let removeSelect = e.target.parentNode
+            removeSelect.remove()
+        }
+
+
+    }, false)
+
+
+</script>
+
+</html>

@@ -10,6 +10,9 @@ let totalGuess = [];
 let chances = 10;
 let gameOver = false;
 
+console.log(randomValue);
+
+
 form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (gameOver) return;
