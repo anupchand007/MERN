@@ -43,26 +43,26 @@
 
     // Event Propagation (Follows the squence flow by provide true valye after function in addEventListener)
 
-    // pic.addEventListener('click', function (e) {
-    //     // console.log(e)     
-    //     console.log("you have clicked the owl")
-    //     // e.stopPropagation();
-    // })
+    pic.addEventListener('click', function (e) {
+        // console.log(e)     
+        console.log("you have clicked the owl")
+        // e.stopPropagation();
+    })
 
 
-    // document.getElementById('images').addEventListener('click', function (e) {
-    //     // console.log(e)     
-    //     console.log("you have clicked the pic")
-    //     // e.stopPropagation();
-    // })
+    document.getElementById('images').addEventListener('click', function (e) {
+        // console.log(e)     
+        console.log("you have clicked the pic")
+        // e.stopPropagation();
+    })
 
 
-    // document.getElementById('google').addEventListener('click', function(e){
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     console.log('Google Clicked');
+    document.getElementById('google').addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Google Clicked');
 
-    // })
+    })
 
     /////++++++++++++++++++++ Event Propagation ++++++++++++/////////////////////
 
