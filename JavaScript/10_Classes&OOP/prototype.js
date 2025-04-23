@@ -55,7 +55,7 @@ let anotherUSername = "Anup Chand     "
 String.prototype.trueLength = function(){
     console.log(`${this}`);
     console.log(`True Length is ${this.trim().length}`);
-    
+
 }
 
 anotherUSername.trueLength();
