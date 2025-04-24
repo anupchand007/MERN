@@ -1,4 +1,10 @@
-// for of
+//for...of
+
+// Loops over iterables (arrays, strings, maps).
+// 
+// for (let value of array) {
+//   console.log(value)
+// }
 
 const myArray = [1, 2, 3, 4, 5];
 
@@ -24,9 +30,9 @@ map.set("Age", "22")
 
 
 
-for (const [key, value ] of map) {
+for (const [key, value] of map) {
     // console.log(key, " : ", value);
-    
+
 }
 
 const myGame = {

@@ -1,3 +1,8 @@
+// forEach()
+
+// Executes a function for each array element.  
+// Doesn't return a new array.
+
 const coding  = ["js", "java", "php", "ruby"]
 
 // coding.forEach( function (item) {

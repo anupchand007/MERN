@@ -1,3 +1,7 @@
+// for...in
+//Loops over **enumerable properties (keys) of an object**.
+
+
 const myObj = {
     langauge1 : "JS",
     langauge2 : "HTML",
