@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="City" placeholder="Enter your Location">
+    <button id="showWeather">Show Weather</button>
+    <div id="weatherResult"></div>
+
+</body>
+
+<script>
+
+    const apiKey = "e65b1d4cf5c345f7b1b75852252304";
+    const Button = document.querySelector('#showWeather');
+    const temp = document.querySelector('#temp')
+
+
+    Button.addEventListener('click', (e) => {
+        const place = document.getElementById('City').value;
+        if (!place) {
+            alert("Please Enter the Place!");
+            return;
+        }
+        const result = document.createElement('h1');
+        const container = document.getElementById('weatherResult'); 
+        container.innerHTML = ''; 
+
+        const URL = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${place}`
+
+        fetch(URL)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                const tempC = data.current.temp_c;
+                result.innerHTML = `Temperature in ${data.location.name}: ${tempC}°C`;
+                container.appendChild(result)
+            })
+            .catch((error) => console.log("Error Occured" + error))
+            
+
+
+    })
+
+</script>
+
+</html>
