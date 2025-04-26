@@ -1,8 +1,12 @@
+import MyHero from "./anup";
 
 function App() {
+  const username = "ANup Chand"
   return (
-    <h1>Anup Chand With React and Vite</h1>
-  )
+    <>
+      <MyHero />
+      <p>My name is {username}</p>
+    </>
+  );
 }
-
-export default App
+export default App;

@@ -1,8 +1,11 @@
-
+import MyHero  from "./Spidermand";
 
 function App() {
   return (
-    <h1>Hello Worlds Form React | Anup Chand</h1>
+    <>
+      <MyHero />
+      {/* <h2>HEllo</h2> */}
+    </>
   );
 }
 
