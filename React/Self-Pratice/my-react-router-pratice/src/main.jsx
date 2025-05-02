@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App.jsx";
 import Home from "./Components/Home.jsx";
 import {
-  BrowserRouter,
   createBrowserRouter,
   RouterProvider,
 } from "react-router";
