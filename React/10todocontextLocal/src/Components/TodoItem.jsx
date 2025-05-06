@@ -2,6 +2,15 @@ import React from "react";
 import { useTodo } from "../Context/TodoContext";
 import { useState } from "react";
 
+/*
+This shows one single todo (e.g., a checkbox, the todo text, and buttons to edit or delete).
+It needs to know which todo to show, which is why we pass it the todo prop.
+It lets you:
+
+    Check a box to mark the todo as completed.
+    Edit the todo text.
+    Delete the todo.
+*/
 
 function TodoItem({ todo }) {
   

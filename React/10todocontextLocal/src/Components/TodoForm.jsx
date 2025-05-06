@@ -5,9 +5,14 @@ function TodoForm() {
   const [todo, setTodo] = useState("");
   const { addTodo } = useTodo();
 
+  /*
+This is where you type a new todo (e.g., “Buy milk”).
+It has an input box and an “Add” button.
+When you click “Add,” it calls the addTodo function from App.jsx to add the new todo to the list.
+  */
+
   const add = (e) => {
     e.preventDefault();
-
     if (!todo) return;
 
     addTodo({ id: Date.now(), todo, completed: false });
@@ -34,5 +39,3 @@ function TodoForm() {
 }
 
 export default TodoForm;
-
-

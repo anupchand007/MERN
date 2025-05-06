@@ -4,6 +4,19 @@ import { TodoProvide } from "./Context/TodoContext";
 import TodoForm from "./Components/TodoForm";
 import TodoItem from "./Components/TodoItem";
 
+/*
+This is the “boss” of your app. It keeps track of the list of todos and tells other parts what to do. 
+It uses useState to store the todos list (like a notebook where you write down all your todos).
+It has functions to:
+
+    Add a new todo (addTodo).
+    Edit a todo (updateTodo).
+    Delete a todo (deleteTodo).
+    Mark a todo as done (toggleComplete).
+
+It also saves the todos to localStorage (like saving your notebook to your computer) so they don’t disappear when you refresh the page.
+ */
+
 function App() {
   const [todos, setTodos] = useState([]);
 
@@ -34,7 +47,7 @@ function App() {
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todos"));
 
-    if (todos && todos.length > 0) setTodos(todos);
+    if ( todos && todos.length > 0) setTodos(todos);
   }, []);
 
   useEffect(() => {
