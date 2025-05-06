@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./App.css";
+import { useEffect } from "react";
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [inputTodo, setInputTodo] = useState(""); //input area
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   function handleInputChange(t) {
     setInputTodo(t.target.value);
@@ -18,7 +20,7 @@ function App() {
 
   function deleteTodo(index) {
     const updatedTodos = todos.filter((_, i) => i !== index);
-    
+
     /**
     todos.filter() → it loops through all items in the todos list.
      
@@ -27,10 +29,54 @@ function App() {
     i !== index → it keeps only those items whose position is not equal to the one we clicked (the one we want to delete). 
     
     **/
-    
-    setTodos(updatedTodos);
 
+    setTodos(updatedTodos);
   }
+
+  // Load todos from localStorage on mount
+  useEffect(() => {
+    const storeTodos = JSON.parse(localStorage.getItem("todos") || "[]");
+    if (storeTodos && storeTodos.length > 0) {
+      setTodos(storeTodos);
+    } else {
+      console.log("Error Occured");
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log("Saving to localStorage:", todos);
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  function clearTodos() {
+    if (todos && todos.length > 0) {
+      localStorage.clear();
+      setTodos([]);
+    }
+  }
+
+  const toggleMode = () => {
+    setIsDarkMode(!isDarkMode)
+    localStorage.setItem('darkMode', JSON.stringify(!isDarkMode))
+  }
+
+  useEffect(()=>{
+    if(isDarkMode){
+      document.body.classList.add('dark')
+      document.body.classList.remove('light')
+    }else{
+      document.body.classList.add('light')
+      document.body.classList.remove('dark')
+    }
+  }, [isDarkMode])
+
+
+  useEffect (()=> {
+    const themeMode = localStorage.getItem('darkMode')
+    if(themeMode){
+      setIsDarkMode(JSON.parse(themeMode))
+    }
+  }, [])
 
   return (
     <>
@@ -64,7 +110,7 @@ function App() {
             {todos.map((todo, index) => (
               <li
                 key={index}
-                className=" w-lvh m-1 flex overflow-hidden flex-wrap wrap-normal justify-around items-center gap-2 "
+                className=" w-lvh m-1 flex overflow-hidden flex-wrap wrap-normal justify-between items-center gap-2 border-2 bg-blue-700 p-5 "
               >
                 <span className="w-lg ">{todo}</span>
                 <button onClick={() => deleteTodo(index)}>❌</button>
@@ -72,6 +118,10 @@ function App() {
             ))}
           </ol>
         </div>
+        <button onClick={clearTodos}>Clear All the Todos</button>
+
+        <button className={isDarkMode ? "dark" : "light"}
+        onClick={toggleMode}> {isDarkMode ? "☀️" : "🌑"}</button>
       </div>
     </>
   );
