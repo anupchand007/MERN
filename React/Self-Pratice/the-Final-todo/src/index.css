@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+*{
+    font-family: 'Poppins', 'Roboto';
+}
+
+.dark {
+    background-color: #1a202c;
+    /* color: #f9fafb; */
+    color: #FFE443;
+    border-bottom: 1px solid #374151;
+}
+
+.light {
+    background-color: #cecfd1;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+}
