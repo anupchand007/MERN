@@ -5,23 +5,9 @@ import App from '../App';
 
 const Todos = () => {
   return (
-    <div className='flex justify-center items-center border-b-fuchsia-500 h-4/6 w-screen'>
+    <div className='todos-container flex justify-center items-center border-b-fuchsia-500 h-4/6 w-screen'>
       <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
-      <h1>This is Todos List Page</h1>
+
     </div>
   )
 }
