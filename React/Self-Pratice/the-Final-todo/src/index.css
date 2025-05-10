@@ -1,52 +1,9 @@
 @import "tailwindcss";
 
-* {
-    font-family: 'Poppins', 'Roboto';
-    box-sizing: border-box;
+*{
+  font-family:  'Poppins', 'Courier New', Courier, monospace;
+  transition: all 0.3s ease-in-out;
+
 }
 
-.dark {
-    background-color: #1a202c;
-    /* color: #f9fafb; */
-    color: #FFE443;
-    border-bottom: 1px solid #374151;
-}
 
-.light {
-    background-color: #cecfd1;
-    color: #374151;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-.navbar-container {
-    height: 80px;
-    position: relative;
-    z-index: 10;
-}
-
-.content-container {
-    margin-top: 20px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 100px);
-    overflow-y: auto;
-    width: 100%;
-}
-
-.todos-container {
-    margin-top: 20px;
-    width: 100%;
-}
-
-/* Error page styling */
-.error-message {
-    padding: 20px;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.5;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    margin-top: 40px;
-}
