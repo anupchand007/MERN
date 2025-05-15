@@ -6,16 +6,20 @@ function App() {
   const [allowNum, setallowNum] = useState(false);
   const [allowChar, setallowChar] = useState(false);
   const [password, setPassword] = useState("");
+  const [copied, setCopied] = useState(false);
   
-
   //ref hook
   const passwordCopy = useRef()
 
   const copyPassword = useCallback(() => {
     passwordCopy.current?.select();
-    passwordCopy.current?.setSelectionRange(0, 5);
-    window.navigator.clipboard.writeText(password)
-  }, [password] )
+    passwordCopy.current?.setSelectionRange(0, password.length);
+    window.navigator.clipboard.writeText(password);
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  }, [password])
 
   //useCallback store the cache 
   const passwordGenerator = useCallback(() => {
@@ -36,67 +40,72 @@ function App() {
     setPassword(pass);
   }, [length, allowChar, allowNum, setPassword]);
 
-
-
   //useEffect run the function if the found changes in its dependencies
   useEffect(()=>{
     passwordGenerator()
   }, [length, allowNum, allowChar, passwordGenerator])
 
   return (
-    <>
-      <div className="w-screen mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-700">
-        <h1 className="text-white text-center my-3">Password Generator</h1>
-        <div className="flex border-2 shadow rounded-lg overflow-hidden mb-4">
+    <div className="container">
+      <h1 className="title">Password Generator</h1>
+      
+      <div className="password-display">
+        <input
+          type="text"
+          value={password}
+          className="password-input"
+          placeholder="Your secure password"
+          readOnly
+          ref={passwordCopy}
+        />
+        <button 
+          className="copy-btn" 
+          onClick={copyPassword}
+        >
+          {copied ? "Copied!" : "Copy"}
+        </button>
+      </div>
+      
+      <div className="options">
+        <div className="option-item">
           <input
-            type="text"
-            value={password}
-            className="outline-none w-full py-1 px-3"
-            placeholder="Password"
-            readOnly
-            ref={passwordCopy}
-
+            type="range"
+            min={6}
+            max={25}
+            value={length}
+            className="slider"
+            onChange={(e) => setLength(e.target.value)}
           />
-
-          <button onClick={copyPassword}>Copy</button>
+          <label className="option-label">Length: {length}</label>
         </div>
-        <div>
-          <div className="flex items-center gap-x-1">
-            <input
-              type="range"
-              min={6}
-              max={25}
-              value={length}
-              className="cursor-pointer"
-              onChange={(e) => setLength(e.target.value)}
-            />
-            <label>Length: {length}</label>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <input
-              type="checkbox"
-              defaultChecked={allowNum}
-              id="numberInput"
-              onClick={() => {
-                setallowNum((prev) => !prev);
-              }}
-            />
-            <label>Number</label>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <input
-              type="checkbox"
-              defaultChecked={allowChar}
-              id="numberInput"
-              onClick={() => {
-                setallowChar((prev) => !prev);
-              }}
-            />
-            <label>Symbols</label>
-          </div>
+        
+        <div className="option-item">
+          <input
+            type="checkbox"
+            className="checkbox"
+            checked={allowNum}
+            id="numberInput"
+            onChange={() => {
+              setallowNum((prev) => !prev);
+            }}
+          />
+          <label className="option-label" htmlFor="numberInput">Include Numbers</label>
+        </div>
+        
+        <div className="option-item">
+          <input
+            type="checkbox"
+            className="checkbox"
+            checked={allowChar}
+            id="charInput"
+            onChange={() => {
+              setallowChar((prev) => !prev);
+            }}
+          />
+          <label className="option-label" htmlFor="charInput">Include Symbols</label>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
