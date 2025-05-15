@@ -14,40 +14,44 @@ function InputBox({
   const amountInputId = useId();
 
   return (
-    <div className={`bg-white p-3 rounded-lg text-sm flex ${className}`}>
-      <div className="w-1/2">
+    <div className={`flex flex-col md:flex-row ${className}`}>
+      <div className="w-full md:w-1/2 md:pr-2">
         <label
           htmlFor={amountInputId}
-          className="text-black/40 mb-2 inline-block"
+          className="label"
         >
           {label}
         </label>
-        <input
-          id={amountInputId}
-          className="outline-none w-full bg-transparent py-1.5"
-          type="number"
-          placeholder="Amount"
-          disabled={amountDisable}
-          value={amount}
-          onChange={(e) =>
-            onAmountChange && onAmountChange(Number(e.target.value))
-          }
-        />
+        <div className="input-field-container">
+          <input
+            id={amountInputId}
+            className="amount-input"
+            type="number"
+            placeholder="Enter amount"
+            disabled={amountDisable}
+            value={amount}
+            onChange={(e) =>
+              onAmountChange && onAmountChange(Number(e.target.value))
+            }
+          />
+        </div>
       </div>
-      <div className="w-1/2 flex flex-wrap justify-end text-right">
-        <p className="text-black/40 mb-2 w-full">Currency Type</p>
-        <select
-          className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
-          value={selectCurrency}
-          onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
-          disabled={currenyDisbale}
-        >
-          {currencyOptions.map((currency) => (
-            <option key={currency} value={currency}>
-              {currency}
-            </option>
-          ))}
-        </select>
+      <div className="w-full md:w-1/2 mt-3 md:mt-0">
+        <label className="label">Currency Type</label>
+        <div className="select-container">
+          <select
+            className="currency-select"
+            value={selectCurrency}
+            onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
+            disabled={currenyDisbale}
+          >
+            {currencyOptions.map((currency) => (
+              <option key={currency} value={currency}>
+                {currency.toUpperCase()}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
   );
