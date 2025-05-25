@@ -5,7 +5,6 @@ import { Button, Input, Logo } from "./index";
 import authService from "../appwrite/auth";
 import { useFrom } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import Input from "./Input";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -56,13 +55,11 @@ const Login = () => {
               {...register("email", {
                 required: true,
                 validate: {
-                  matchPattern: (value) => {
                     matchPatern: (value) =>
                       /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
                         value
-                      ) || "Email address must be a valid address";
+                      ) || "Email address must be a valid address",
                   },
-                },
               })}
             />
 
