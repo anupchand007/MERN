@@ -3,8 +3,7 @@ import "./App.css";
 import { useDispatch } from "react-redux";
 import authService from "../src/appwrite/auth";
 import { login, logout } from "./Store/authSlice";
-import Header from "./Components/Header/Header";
-import Footer from "../src/Components/Footer/Footer"
+import { Header , Footer } from "./Components";
 import { Outlet } from "react-router-dom";
 
 function App() {
