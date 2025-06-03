@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="show">
+        <button id="Photo">Show Photo</button>
+    </div>
+</body>
+<script>
+    let requestURL = "https://api.github.com/users/anupchand007"
+    let xhr = new XMLHttpRequest();
+
+    // readyState | Name              | Description
+    // 0          | UNSENT           | The request is created, but open() hasn’t been called yet.
+    // 1          | OPENED           | open() has been called, but send() hasn't yet. You can now set request headers.
+    // 2          | HEADERS_RECEIVED | send() has been called, and response headers are received.
+    // 3          | LOADING          | Response is being downloaded; partial data is available.
+    // 4          | DONE             | Request is complete, and the response is fully received.
+
+    xhr.open("GET", requestURL);
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText)
+            console.log(`Total no of public repos is ${data.public_repos}`);
+
+            const PP = document.querySelector('#Photo');
+
+            PP.addEventListener('click', () => {
+                const img = document.createElement('img')
+                img.src = data.avatar_url;
+                img.alt = "User GITHUB Profile"
+                img.style.height = "200px";
+                document.body.appendChild(img)
+            });
+        }
+    }
+    xhr.send();
+
+</script>
+
+</html>

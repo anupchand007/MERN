@@ -36,8 +36,6 @@ function Header() {
     },
   ];
 
-  console.log("header is rendered");
-
   return (
     <header className="py-3 shadow bg-gray-500 border h-20">
       <Container>

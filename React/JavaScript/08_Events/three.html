@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 class="stop">Coding with JS</h2>
+    <button value="stop" id="start">Start</button>
+    <button value="stop" id="stop">Stop</button>
+</body>
+<script>
+
+    const printME = () => {
+        console.log("ANup", Date().toString());
+    }
+    
+    let intervalID;
+
+    document.querySelector('#start').addEventListener('click', () => {
+        intervalID = setInterval(printME, 1000);
+    })
+
+
+    document.querySelector('#stop').addEventListener('click', () => {
+        clearInterval(intervalID);
+        console.log("Stopped");
+        
+    })
+
+</script>
+
+</html> 

@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node --max_old_space_size=4096 node_modules/.bin/react-scripts start",
+    "build": "node --max_old_space_size=4096 node_modules/.bin/react-scripts build"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",

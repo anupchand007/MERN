@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(209, 226, 226);
+}
+#Sub{
+    /* border: 2px solid red; */
+    border-radius: 10px;
+    border: none;
+    height: 25px;
+}
+#Sub:hover{
+    background-color: black;
+    color: white;
+
+}

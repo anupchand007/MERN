@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        th,
+        td {
+            border: 1px solid red;
+        }
+        #third{
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            text-align: center;
+            border: 5px solid red;
+        }
+
+        legend{
+            border: 2px solid black;
+            padding: 10px;
+            margin: 5px;
+            height: 40%;
+            /* width: 10%; */
+            text-wrap: wrap;
+        }
+
+    </style>
+</head>
+
+<body>
+    <span>Hello This is anup chand. I am at my 7th sem at my Bachelor degree Level</span>
+    <p>This the is process of learning something new and excitement.</p>
+    <h2>Why is this thing is not being aligned....</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+        </tr>
+        <tr>
+            <td>Anup Chand</td>
+            <td>22</td>
+            <td>Male</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <div id="third">
+        <legend> Registration Form
+            <form action="">
+        <label for="Username">Username</label>        
+                <input id="Uname" type="text" name="Username" placeholder="Enter Your Name">
+                <br>
+                <br>
+        <label id="Age" for="Age">Age</label>
+                <input type="number" name="Age" placeholder="Enter Your Name">
+                <br>
+                <br>
+        <label for="Gender">Gender</label>
+                Male <input type="radio" name="Gender" value="Male">
+                Female <input type="radio" name="Gender" value="Female">
+                <br>
+                <br>
+        
+                <input id="Sub" type="submit" value="Submit" onclick="return Validate()">
+            </form>
+        </legend>
+    </div>
+    <div id="err"></div>
+    <script src="../JS_Scripts/formvalidation.js"></script>
+</body>
+
+</html>

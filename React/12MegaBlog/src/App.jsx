@@ -10,18 +10,45 @@ function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   authService
+  //     .getCurrentUser()
+  //     .then((userData) => {
+  //       if (userData) {
+  //         dispatch(login({ userData }));
+  //       } else {
+  //         dispatch(logout());
+  //       }
+  //     })
+  //     .finally(() => setLoading(false));
+  // }, []);
+
   useEffect(() => {
-    authService
-      .getCurrentUser()
-      .then((userData) => {
+  let isMounted = true;
+
+  authService
+    .getCurrentUser()
+    .then((userData) => {
+      if (isMounted) {
         if (userData) {
           dispatch(login({ userData }));
         } else {
           dispatch(logout());
         }
-      })
-      .finally(() => setLoading(false));
-  }, []);
+      }
+    })
+    .finally(() => {
+      if (isMounted) setLoading(false);
+    });
+
+  return () => {
+    isMounted = false;
+  };
+}, []);
+
+
+  console.log("Data Loaded");
+  
 
   return !loading ? (
     <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
