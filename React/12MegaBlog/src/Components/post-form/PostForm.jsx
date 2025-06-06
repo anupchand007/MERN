@@ -67,7 +67,11 @@ export default function PostForm({ post }) {
             }
         });
 
-        return () => subscription.unsubscribe();
+        return () => {
+            if (subscription && typeof subscription.unsubscribe === 'function') {
+                subscription.unsubscribe();
+            }
+        };
     }, [watch, slugTransform, setValue]);
 
     return (
