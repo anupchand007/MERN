@@ -2,7 +2,7 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
     todo: [{
-        id: nanoid,
+        id: 0,
         task: "Code some JS and React Program"
     }]
 }
