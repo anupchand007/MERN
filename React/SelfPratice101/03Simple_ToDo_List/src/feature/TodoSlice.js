@@ -1,37 +1,53 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
+const loadTodosFromStorage = () => {
+    try {
+        const todos = localStorage.getItem("todos");
+        return todos ? JSON.parse(todos) : [];
+    } catch (error) {
+        console.error("Error loading todos from localStorage:", error);
+        return [];
+    }
+};
+
+const saveTodosToStorage = (todos) => {
+    try {
+        localStorage.setItem("todos", JSON.stringify(todos));
+    } catch (error) {
+        console.error("Error saving todos to localStorage:", error);
+    }
+};
+
 const initialState = {
-    todo: localStorage.getItem("todos")
-    ? JSON.parse(localStorage.getItem("todos"))
-    : [
-        {
-          id: 0,
-          task: "Code some JS and React Program"
-        }
-      ]
+    todo: loadTodosFromStorage()
 };
 
 const TodoSlice = createSlice({
     name: "Todos",
     initialState,
-    reducers:
-    {
+    reducers: {
         addTodo: (state, action) => {
-            const addedTodo = {
-                id: nanoid(),
-                task: action.payload
+            if (!action.payload || typeof action.payload !== 'string') {
+                return;
             }
-            state.todo.push(addedTodo)
-            localStorage.setItem("todos", JSON.stringify(state.todo));
+            const trimmedTask = action.payload.trim();
+            if (trimmedTask) {
+                const addedTodo = {
+                    id: nanoid(),
+                    task: trimmedTask,
+                    createdAt: new Date().toISOString()
+                };
+                state.todo.push(addedTodo);
+                saveTodosToStorage(state.todo);
+            }
         },
         removeTodo: (state, action) => {
-            state.todo = state.todo.filter((tasks) =>
-                tasks.id !== action.payload
-            )
-            localStorage.setItem("todos", JSON.stringify(state.todo))
+            if (!action.payload) return;
+            state.todo = state.todo.filter((task) => task.id !== action.payload);
+            saveTodosToStorage(state.todo);
         }
     }
-})
+});
 
 export const { addTodo, removeTodo } = TodoSlice.actions;
 
